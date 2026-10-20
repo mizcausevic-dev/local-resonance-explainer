@@ -19,7 +19,8 @@ Excitation frequency is shown qualitatively as below / near / beyond the isolate
 Verified with Node.js 24.11.0 and npm. Use a Node.js version supported by the locked Vite release.
 
 ```powershell
-cd 'C:\Users\chaus\Documents\Codex\2026-10-20\files-pasted-by-the-user-act\outputs\local-resonance-explainer'
+git clone https://github.com/mizcausevic-dev/local-resonance-explainer.git
+cd local-resonance-explainer
 npm.cmd ci
 npm.cmd run dev
 ```
@@ -39,7 +40,7 @@ The deployable static site is `dist/`. The Vite `base: './'` setting makes asset
 
 ## GitHub Pages
 
-No repository target is assumed. Once the exact owner/repo and authorized branch are selected, copy this project into that checkout without replacing unrelated files, commit it on a reviewable branch, and use the included workflow at `.github/workflows/pages.yml` (or integrate its build/deploy steps into the repository's established workflow). Configure Pages to use **GitHub Actions** as its build source. The workflow uploads `dist/`; verify the resulting URL, asset loading, and controls in a real browser after deployment.
+The public repository is [mizcausevic-dev/local-resonance-explainer](https://github.com/mizcausevic-dev/local-resonance-explainer), with `main` as its deploy branch. GitHub Pages uses **GitHub Actions** as its build source. The included `.github/workflows/pages.yml` runs tests and the production build, then uploads `dist/`. The intended public URL is [mizcausevic-dev.github.io/local-resonance-explainer/](https://mizcausevic-dev.github.io/local-resonance-explainer/). Check the latest Actions run and test the live page before treating a deployment as verified.
 
 Rollback: redeploy the last known good Actions artifact or revert the deployment commit. Keep the prior artifact or commit SHA available before publication.
 
