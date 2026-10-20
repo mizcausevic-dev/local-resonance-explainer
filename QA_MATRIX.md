@@ -17,6 +17,8 @@ Evidence level: scientific schematic, not a calculated beam solution
 | WebGL-disabled Chrome pass | Exit 0 | Static diagram and explanatory status appeared. |
 | In-app browser manual view | Observed | At approximately 1265×710, initial scene and controls fit the first viewport after the short-height layout adjustment. |
 | Built bundle local preview | Observed | `npm.cmd run preview` at `http://127.0.0.1:4173/` loaded the static bundle with no console errors; the idle first frame was visible after repair. |
+| GitHub Actions run [#2](https://github.com/mizcausevic-dev/local-resonance-explainer/actions/runs/39407935289) | Verified | Commit `70801ca6c7a51eb97cd59ec030c30697f2dbf7a5`: build and deploy jobs succeeded; the hosted test report recorded 6 passes. Pages artifact digest: `sha256:3bb95e95d164c3c8ea898038e80602b0973eb6b33df58ac04289ba200815359b`. |
+| Public Pages browser pass | Verified | [Live site](https://mizcausevic-dev.github.io/local-resonance-explainer/) loaded with the 3D scene and relative CSS/JS assets. Chapter 5 navigation moved to 00:25, Play advanced the timeline, Pause held it, and the browser recorded no console errors. |
 
 ## Visual review
 
@@ -36,9 +38,10 @@ An internal full-screen visual concept was used for layout direction. It contain
 - The schematic response is authored, not a beam equation solution or measured attenuation. Visual inspection does not validate physical performance.
 - The score and effects were triggered through browser controls without uncaught errors; sound quality, loudness, and device audio hardware were not independently measured.
 - Fullscreen is implemented through the Fullscreen API but was not independently exercised across browsers.
-- No GitHub repository or Pages deployment has been selected or published. No public URL, production Core Web Vitals, or remote availability check is claimed.
+- The public Pages URL and basic interaction were checked in a desktop browser. Production Core Web Vitals, physical-device audio, and cross-browser behavior were not measured.
 - The 558.72 kB JavaScript bundle is a deliberate single-bundle Three.js trade-off. The 500 kB build advisory remains.
+- GitHub Actions reported Node.js 20 deprecation warnings for the referenced action versions and an `ubuntu-latest` image migration notice. The successful run used the current hosted runner behavior; these warnings warrant maintenance before the runner policy changes.
 
 ## Release and rollback
 
-The static output is `dist/`. For GitHub Pages, authorize the exact owner/repository first, then push to its approved branch, select GitHub Actions as the Pages source, run `.github/workflows/pages.yml`, and verify the live URL, asset loading, controls, and console. To roll back, redeploy the last known good Actions artifact or revert the deployment commit.
+The static output is `dist/`. [The public repository](https://github.com/mizcausevic-dev/local-resonance-explainer) deploys `main` through `.github/workflows/pages.yml` to [GitHub Pages](https://mizcausevic-dev.github.io/local-resonance-explainer/). Run #1 built but could not deploy while Pages was disabled; Pages was enabled, then run #2 built, tested, and deployed successfully. To roll back, redeploy the last known good Actions artifact or revert the deployment commit; inspect the current run and URL after either action.
